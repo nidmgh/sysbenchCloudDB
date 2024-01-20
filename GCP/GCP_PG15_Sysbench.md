@@ -100,7 +100,7 @@ Seven 10-minutes run of oltp_read_write with with different # of concurrent thre
 
 #### PG15 Enterprise Plus
 
-| Thread | TPS     | QPS      | P95 latency (ms) | CPU % | TPS/$ * |
+| Thread | TPS     | QPS      | P95 latency (ms) | CPU % | TPS/$ \* |
 | ------ | ------- | -------- | ---------------- | ----- | ----- |
 | 2      | 240.90  | 4818.05  | 9.91             | 7.0%  | 0.313 |
 | 4      | 508.23  | 10164.69 | 8.9              | 13.5% | 0.660 |

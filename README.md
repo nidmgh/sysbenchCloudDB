@@ -8,7 +8,7 @@ By conducting a more systematic performance comparison of various cloud database
 The initial stage will use sysbench *oltp_read_write* benchmark for PostgreSQL.
 
 
-## Environment
+## 1. Environment
 
 ### Hardware resource
 A compute engine(such as AWS's EC2 and GCP's VM) and a cloud database(such as AWS's RDS-PG and GCP's Cloud SQL-PG) will be allocated within **the same region, and same available-zone** to minimize the network issue.
@@ -16,7 +16,7 @@ A compute engine(such as AWS's EC2 and GCP's VM) and a cloud database(such as AW
 The exercise chooses the **entry/mid-level enterprise** Both compute engine and database, so that the resource would be power enough for an enterprise workshop, but also not too high so anyone can reproduce the exercise with minimal cost or free credit from the cloud provider. With that, the compute engine will cost $100~200/month, the Database will cost $500~800/month before any discount, and the spec of each resource will be listed in the detail reports. 
 
 
-## Sysbench
+## 2. Sysbench
 
 * Version: sysbench 1.0.xx 
 
@@ -65,3 +65,13 @@ do
 done
 ```
 
+## 3. Other notes
+
+### Cost
+
+This exercise will also consider cost of the resource as one of the key factors, and will use the pay-as-you-go model for comparison cross cloud providers. However, some providers carry discounted price. For example, 
+At the time of testing, Alibaba Cloud offers discount at 78% for its ECS, so that the list price is 114.69/month but the real cost for this exercise is $89.46. 
+
+It is debatable whether to use cost with or without discount for later comparison. On one hand, Alibaba always carries some kind of discount both for pay-as-you-go(in this case) and subscription by month or years, so discounted price is indeed normal price; on another hand, there is no guarantee of the term of the discounted price for pay-as-you-go. Because this exercise is to provide a guideline for performance and business planning, the full price is used to avoid un-planned cost spike. 
+
+Also because some of the price is listed in Renminbi (CNY), a conversion rate of 7.21(CNY:USD = ￥7.21 : $1) is used so the cost will be presented in US dollar . 
