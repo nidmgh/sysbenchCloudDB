@@ -18,7 +18,7 @@ The exercise chooses the **entry/mid-level enterprise** Both compute engine and 
 
 ## Sysbench
 
-* Version: sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
+* Version: sysbench 1.0.xx 
 
 ### Step 1:  create Database
 
@@ -34,10 +34,13 @@ sysbench --db-driver=pgsql --pgsql-host="$dbip" --pgsql-port="$dbport" --pgsql-u
 
 ### Step 3: benchmark run
 
+Seven 10-minutes run of oltp_read_write with with different # of concurrent threads, with the focus on TPS, QPS, P95 latency and the CPU usage of the cloud database.
+
 | Name             | Value |
 | :---------------- | :------: | 
 | scenario        |  oltp\_read\_write   | 
 | concurrent threads        |  2,4,8,16,32,64,128   |
+| latency           |   P95   |  
 | cycle           |   600s   |  
 | tables | 10   | 
 | table size | 10,000,000   | 
