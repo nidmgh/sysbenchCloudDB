@@ -2,6 +2,15 @@
 
 ## Systems
 
+### 0. A picture worth 1000 words
+1. **8C32GB PG15** on Alibaba's Virginian region can scale concurrency up to **64** threads with stability
+2. Further stress to 128 significant increases latency by **2.5X** with limited gain on throughput
+3. When fully utilized, the PG instance can reach **~5500 tps** and **7+ tps/monthcost$** (month cost = monthly cost of this instance in term of US $)
+
+![](./images/Ali_PG15_TPS_TPSpDollar.jpg)
+
+![](./images/Ali_PG15_P95_CPU.jpg)
+
 ### 1. VM Spec and cost
 
 | Name             | Value |Cost (monthly) |
@@ -15,7 +24,7 @@
 
 <sup>*</sup> CNY:USD = ￥7.21 : $1
 
-<sup>**</sup> At the time of testing, Alibaba Cloud offers discount at 78%, so that cost is $89.46. 
+<sup>**</sup> At the time of testing, Alibaba Cloud offers discount at 78%, so the actual cost is $89.46. 
 
 ### 2. PostgreSQL 15
 
@@ -30,7 +39,7 @@ Major resource
 | total || ￥7.64/hour <sup>#</sup>
 |Total Cost|| **$762.93/month** |
 
-<sup>#</sup> At the time of testing, Alibaba Cloud offers discount at 78%, so that cost is ￥5.96/hour, $595.09/month 
+<sup>#</sup> At the time of testing, Alibaba Cloud offers discount at 78%, so the actual cost is ￥5.96/hour, $595.09/month 
 
 
 
@@ -70,9 +79,9 @@ Seven 10-minutes run of oltp_read_write with with different # of concurrent thre
 | 128    | 5892.50 | 117851.37 | 34.95            | 100.0% | 7.724 |
 
 
-<sup>#<sup> postgresql.cpu_usage
+<sup>#</sup> postgresql.cpu_usage
 
-<sup>*<sup> Normalized by monthly cost of $762.93
+<sup>*</sup> Normalized by monthly cost of $762.93
 
 #### Conclusion
 
