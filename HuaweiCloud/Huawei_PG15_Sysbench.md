@@ -4,13 +4,13 @@
 
 ### 0. A picture worth 1000 words
 1. **8C32GB PG15** on Huawei's Mexico City region can scale concurrency up to **32**  threads (comparing to 64 of other Cloud provides) with stability
-2. Further stress to 64 significant increases latency by **120%** with limited gain on throughput of **5%**, with 128 thd gain merely 6.8%* (comparing to 64 the) with with 4.4X latency. 
+2. Further stress to 64 significant increases latency by **120%** with limited gain on throughput of **5%**, with 128 theads gain merely 6.8% (comparing to 64 thd) with with 4.4X latency. 
 3. After pushing to 128 threads, the PG instance can produce **~3400 tps** and **5.0 tps/monthcost$** (month cost = monthly cost of this instance in term of US $)
 4. As one might notices, the report doesn't contain CPU utilization. After **3+ hours** spending on the website with authorization and permission, I cannot figure out how to get the monitor/performance information. Before self-blame, I realized that on the other four clouds(GCP, AWS, Ali, Tencent) only 5 minutes(more accurately, 10 seconds) was necessary. 
 
-![](./images/Huawei_PG15_TPS_TPSpDollar.jpg)
+![TPS](./images/Huawei_PG15_TPS_TPSpDollar.jpg)
 
-![](./images/Huawei_PG15_P95_noCPU.jpg)
+![P95](./images/Huawei_PG15_P95_noCPU.jpg)
 
 ### 1. VM Spec and cost
 
