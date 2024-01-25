@@ -13,7 +13,7 @@ The initial stage will use sysbench *oltp_read_write* benchmark for PostgreSQL.
 ### Hardware resource
 A compute engine(such as AWS's EC2 and GCP's VM) and a cloud database(such as AWS's RDS-PG and GCP's Cloud SQL-PG) will be allocated within **the same region, and same available-zone** to minimize the network issue.
 
-The exercise chooses the **entry/mid-level enterprise** Both compute engine and database, so that the resource would be power enough for an enterprise workshop, but also not too high so anyone can reproduce the exercise with minimal cost or free credit from the cloud provider. With that, the compute engine will cost $100~200/month, the Database will cost $500~800/month before any discount, and the spec of each resource will be listed in the detail reports. 
+The exercise chooses the **entry/mid-level enterprise** Both compute engine and database, so that the resource would be power enough for an enterprise workshop, but also not too high so anyone can reproduce the exercise with minimal cost or free credit from the cloud provider. With that, the compute engine will cost $100-200/month, the Database will cost $500-800/month before any discount. The spec of each resource will be listed in the detail reports. 
 
 
 ## 2. Sysbench

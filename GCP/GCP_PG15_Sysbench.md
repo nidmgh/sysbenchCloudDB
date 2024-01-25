@@ -11,6 +11,7 @@
 | Storage           |   50 GB SSD persistent disk   | $8.50
 | OS        | centos stream 9   |
 | region/zone        | us-central1-c   |
+| availability policy | standard |
 
 Total Cost: $134.33/month
 
