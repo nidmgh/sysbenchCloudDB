@@ -10,7 +10,7 @@
 
 ![TPS](./images/Huawei_PG15_TPS_TPSpDollar.jpg)
 
-![P95](./images/Huawei_PG15_P95_noCPU.jpg)
+![P95](./images/Huawei_PG15_P95_NoCPU.jpg) 
 
 ### 1. VM Spec and cost
 
