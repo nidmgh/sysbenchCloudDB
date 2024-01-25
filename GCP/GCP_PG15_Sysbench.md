@@ -28,9 +28,10 @@ Major resource
 | CPU |        8 vCPU    |  ($0.041 per vCPU/hour) $0.33
 | Memory |       32 GB   | ($0.007 per GiB/hour) $0.22	
 | Storage           |  250 GiB SSD | ($0.17 per GiB/month) $0.06
-| total || $0.61/hour
+| total || $0.61/hour <sup>*</sup>
 |Total Cost|| **$439.2/month** |
 
+<sup>*</sup> Multi-zone HA will cost $1.23 per hour($885.6/m)
 
 
 Other Spec 
@@ -63,7 +64,7 @@ Major resource
 |Total Cost|| **$770.4/month** <br> (hypothetically with 32GB, $561.6/month) |
 
 
-
+<sup>*</sup> Multi-zone HA will cost $2.14/hour
 
 Other Spec 
 
