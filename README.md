@@ -74,6 +74,7 @@ done
 | --------------- | ------------- | ------------------------ | -------------------- | --------------- | ------------- |
 | Monthly Cost($) | 762.93        | 751.01                   | 770.40               | 675.06          | 826.85        |
 | Region          | US (Virginia) | us-east-1a (N. Virginia) | us-central1-c (Iowa) | LA-Mexico City1 | US (Virginia) |
+| HA | Enable(same zone) | No | No | Enable(same zone) | Enable(same zone)
 
 ### TPS
 
@@ -112,6 +113,14 @@ done
 
 ![P95 latency  on five clouds](./images/PG15_sysbench_LatencyP95_AAGHT.jpg)
 
+
+### Detail reports
+
+* [Alibaba Cloud](./AliCloud/Ali_PG15_Sysbench.md) 
+* [AWS](./AWS/AWS_PG15_Sysbench.md)
+* [Google Cloud](./GCP/GCP_PG15_Sysbench.md)
+* [Huawei Cloud](./HuaweiCloud/Huawei_PG15_Sysbench.md)
+* [Tencent](./Tencent/Tencent_PG15_Sysbench.md)
 
 ## 4. Other notes
 
