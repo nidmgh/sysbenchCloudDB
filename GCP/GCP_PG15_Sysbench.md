@@ -5,7 +5,7 @@
 ### 0. A picture worth 1000 words
 1. **8C64GB PG15 Enterprise Plus** on GCP's Iowa region can scale concurrency up to **64** threads with stability
 2. Further stress to 128 theads, will see TPS decrease while P95 latency more than doubled. 
-3. With fully utilized at thread 64~128, the PG instance can produce **2700~2900 tps** and **3.7 tps/monthcost$** (month cost = monthly cost of this instance in term of US $)
+3. With fully utilized at thread 64 and 128, the PG instance can produce 2700 and 2900 tps with roughly 3.7 tps/monthcost$ (month cost = monthly cost of this instance in term of US $)
 
 ![GCP_EP 8C64GB PG15 TPS](./GCP_PG15_EnterprisePlus_rawReport/GCP_EP_PG15_TPS_TPSpDollar.jpg)
 
