@@ -1,35 +1,36 @@
 # Shopping around to save money: the right PostgreSQL on clouds 
 
-## A cost-efficient analysis using sysbench on PostgreSQL 15 on Alibaba, AWS, GCP, Huawei and Tencent
+## A cost-efficient analysis using sysbench on PostgreSQL 15 on Alibaba, AWS, GCP, Huawei, and Tencent
 
 > My (cloud-based) PostgreSQL is better than others. 
 
-This is a typical sales pitch without much data to back it up. 
+This is a typical sales pitch without much supporting data. 
 
-Thirty years ago, one may need to call up a travel agent to find a reasonable(hopefully the best price) flight from New Yorker to San Francisco. Now, "google flight" provides a better method within 10 seconds. On another hand, although claiming cutting-edge technology, the industrial method to pick the right cloud database is far behind because all the cloud providers are built and bills differently. Won't an DevOP's life be easier if we can shop Databases like on "google flight", and btw, no need to limit ourselves to US-based Airline? 
+Thirty years ago, one might have needed to call up a travel agent to find a reasonable(hopefully the best price) flight from New York to San Francisco. Now, 'google flights' offers a better method within 10 seconds. On the other hand, despite claims cutting-edge technology, the industry' method of selecting the right cloud database is far behind. This is because all the cloud providers build and bill differently. Wouldn't an DevOP professional's life be easier if we could shop for databases like we do on 'google flights', and by the way, there's no need to limit ourselves to US-based Airline. 
 
-This exercise leverages the multi-threaded benchmark tool, [sysbench](https://github.com/akopytov/sysbench), to evaluate managed database on major cloud provides globally, including GCP, AWS, AlibabaCloud, Huawei Cloud and Tencent Cloud. The result was surprising that the performance varied as high as <span style="color:red">**4X**</span>, with the same hardware, the same open source database, and similar cost. For example, PG15 shows **5892 TPS** on AlibabaCloud(virginia region) while the one on GCP enterprise Plus(Iowa) produces **2790**, and AWS cannot barely touch **1500** with significant latency. 
+This exercise utilizes the multi-threaded benchmark tool, [Sysbench](https://github.com/akopytov/sysbench), to evaluate managed database across major cloud providers, including GCP, AWS, AlibabaCloud, Huawei Cloud, and Tencent Cloud. The result was surprising, showing performance variations as high as <span style="color:red">**4X**</span>, despite using the same hardware, the same open-source database, and incurring similar costs. For example, PG15 achieved **5892 TPS** on AlibabaCloud (virginia region) whereas the same setup on GCP enterprise Plus(Iowa) produced **2790**. AWS, on the other hand, barely reached **1500** with significant latency. After pricing in the difference between High Availability (HA) and single-node setups, Alibaba Cloud offers a TPS/month-cost that is **10X** of AWS. 
 
 |                 | Alibaba       | AWS                      | GCP_EP               | Huawei          | Tencent       |
 | --------------- | ------------- | ------------------------ | -------------------- | --------------- | ------------- |
 | Monthly Cost($) | 762.93        | 751.01                   | 770.40               | 675.06          | 826.85        |
 | Region          | US (Virginia) | us-east-1a (N. Virginia) | us-central1-c (Iowa) | LA-Mexico City1 | US (Virginia) |
-| HA | Enable(same zone) | No | No | Enable(same zone) | Enable(same zone)
+| High Availability | Enable(same zone) | No | No | Enable(same zone) | Enable(same zone)
 
 
 
-This report applies the systematic comparison of various cloud database in three stages: 
+This report presents a systematic comparison of various cloud databases across three stages: 
 
-1. Performance centric. Using sysbench's *oltp_read_write* for PostgreSQL 15, the analysis focuses TPS and P95 latency in high concurrent environment(scale from 2 to 128, a couple cases up to 512) with CPU utilization and latency as indicators for workload stability.
-2. Price/Performance approach. The database instances were picked with a regular monthly cost between $650~850 and powerful enough for small business and some mid-tier enterprises. A term TPS/month-cost is calculated to demonstrate the output of a production system.
-3. User friendly, an subjective evaluation. Eventually, it is human being making the decision and we must recognize the human cost. The report also includes observations during the performance analysis. Although hard to quantify, a feedback is necessary to rule out the bottom ones.  
+1. Performance centric: Utilizing Sysbench's *oltp_read_write* benchmark for PostgreSQL 15, the analysis zeros in on TPS and P95 latency in high-concurrency environment(scaling from 2 to 128, with some cases up to 512).  CPU utilization and latency serve indicators of workload stability.
+2. Price/Performance Ratio: Database instances were selected based on a regular monthly cost ranging from $650 to $850, deemed sufficient for small business and some mid-tier enterprises. A 'TPS/month-cost' metric was calculated to gauge the output efficiency of  a production system.
+3. User friendly Evaluation: This subjective acknowledges the human aspect of decision-making, emphasizing the importance of ease of use and management. While challenging to quantify, feedback from this evaluation is crucial to identify and eliminate the least user-friendly options.
 
 
-The goal of this report is to serve as a reference for developers and enterprises when selecting cloud databases. The methodology will be applied in the future product of NineData (A cloud DMaaS company) to serve their customers.
+The aim of this report is to provide developers and enterprises with a reference guide for selecting cloud databases. The methodology outlined herein will be incorporated into the future products offered by NineData, a Cloud Database Management as a Service (DMaaS) company, to better serve their customers.
 
-Detail reports and data are available at https://github.com/nidmgh/sysbenchCloudDB
+Detailed reports and supporting data can be found at https://github.com/nidmgh/sysbenchCloudDB
 
-* Disclaimer: The engineer who ran this analysis was an ex-huawei and ex-alibaba. He had NO business affiliation with any of the cloud providers, except for paying the cost or applying for free credits to run the benchmark.   
+#### Disclaimer: 
+The engineer/author responsible for this analysis is a former employee of both Huawei and Alibaba. They currently have no business affiliations with any of the cloud providers mentioned, aside from incurring costs or applying for free credits to conduct the benchmark tests. He was as surprised by the data as anyone else and had a hard time explaining the huge gap.
 
 ## I. Environment
 
