@@ -29,6 +29,7 @@ The goal of this report is to serve as a reference for developers and enterprise
 
 Detail reports and data are available at https://github.com/nidmgh/sysbenchCloudDB
 
+* Disclaimer: The engineer who ran this analysis was an ex-huawei and ex-alibaba. He had NO business affiliation with any of the cloud providers, except for paying the cost or applying for free credits to run the benchmark.   
 
 ## I. Environment
 
@@ -116,6 +117,7 @@ done
 
 ### TPS/month-cost 
 
+#### HA(Alibaba, Huawei and Tencent) vs. SingleDB(GCP and AWS)
 | TPS/m$  | 2    | 4    | 8    | 16   | 32   | 64   | 128  |
 | ------- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | Alibaba | 0.28 | 0.57 | 1.14 | 2.26 | 4.20 | 7.13 | 7.72 |
@@ -124,8 +126,19 @@ done
 | Huawei  | 0.57 | 1.18 | 2.11 | 3.40 | 4.70 | 4.93 | 5.02 |
 | Tencent | 0.27 | 0.45 | 0.86 | 1.60 | 2.57 | 3.58 | 3.61 |
  
-![TPS/month-cost on five clouds](./images/PG15_sysbench_TPSDollarMonth_AAGHT.jpg)
+![TPS/month-cost on five clouds](./images/PG15_sysbench_TPSDollarMonth_AAGHT_actual.jpg)
 
+#### All single DB
+
+![TPS/month-cost on five clouds](./images/PG15_sysbench_TPSDollarMonth_AAGHT_SingleDB.jpg)
+
+| TPS/m$  | 2    | 4    | 8    | 16   | 32   | 64    | 128   |
+| ------- | ---- | ---- | ---- | ---- | ---- | ----- | ----- |
+| Alibaba | 0.56 | 1.15 | 2.28 | 4.53 | 8.40 | 14.26 | 15.45 |
+| AWS     | 0.33 | 0.59 | 0.99 | 0.88 | 1.10 | 1.28  | 1.86  |
+| GCP_EP  | 0.31 | 0.66 | 1.21 | 2.16 | 3.32 | 3.78  | 3.62  |
+| Huawei  | 1.15 | 2.35 | 4.22 | 6.80 | 9.40 | 9.86  | 10.04 |
+| Tencent | 0.53 | 0.90 | 1.73 | 3.21 | 5.15 | 7.17  | 7.21  |
 
 ### P95 Latency
 
