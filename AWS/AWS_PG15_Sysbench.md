@@ -41,7 +41,7 @@ Major resource
 
 <sup>*</sup> Unlike on other clouds, I decide to choose single DB instead of HA(m-s). Otherwise, the monthly cost of DB will double and total cost will far exceed budget for meaningful comparison.
 
-<sup>#</sup> AWS explicitly charges IOPS 
+<sup>#</sup> AWS explicitly charges IOPS , so only $200 was used from the budget to provision IOPS. However, this may cause IO become bottleneck before better leverage other resource, and may partially explain AWS' underperformance
 
 
 
