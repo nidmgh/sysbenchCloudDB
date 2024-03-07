@@ -6,6 +6,7 @@
 1. **8C32GB PG15** on AWS's Virginian region can scale concurrency up to **128** threads with stability
 2. Further stress to 256 significant increases latency by **78%** with limited gain on throughput of **16%**, with 512 threads will gain no throughput(comparing to the 128) with 5X latency. 
 3. With fully utilized at thread 128, the PG instance can produce **~1400 tps** and **1.8 tps/monthcost$** (month cost = monthly cost of this instance in term of US $)
+4. In the follow up study, by paying more IOPS(double from 2K to 4K), TPS increases and TPS/monthlycost improved by 40~60% at 16/32/64 thds(the following charts were drawing with 2000 IOPS setting) 
 
 ![](./images/AWS_PG15_TPS_TPSpDollar.jpg)
 
@@ -97,30 +98,30 @@ Because AWS' performance was surprisingly low comparing all four other clouds, I
 	Double **IOPS to 4000** with all other spec stay same, with roughly 26.7% increase of monthly cost.
 
 	| Name             | Value |Cost (monthly) |
-| :---------------- | :------: |:------: |
-| Instant Type  | db.m5.2xlarge  | 
-| DB Version        | PG15   |
-| CPU/Mem |        8vCPUs 32 Gib <br> am network: 4750 Mbps  |  single DB $519.76/m <sup>*</sup
-| Storage           |  250 GiB SSD <br> Storage provisioned IOPS SSD(io1) |  $31.25/m
-| IP | provisioned IOPS: 4000 | $400/m  <sup>#</sup>
-|Total Cost|| **$951.01/month** |
+	| :---------------- | :------: |:------: |
+	| Instant Type  | db.m5.2xlarge  | 
+	| DB Version        | PG15   |
+	| CPU/Mem |        8vCPUs 32 Gib <br> am network: 4750 Mbps  |  single DB $519.76/m <sup>*</sup
+	| Storage           |  250 GiB SSD <br> Storage provisioned IOPS SSD(io1) |  $31.25/m
+	| IP | provisioned IOPS: 4000 | $400/m  <sup>#</sup>
+	|Total Cost|| **$951.01/month** |
 
 2.  Sysbench result PG15: 8 Cores 32G 4000IOPS
 
 	| Thread | TPS     | P95 latency (ms) | CPU % | TPS/m$     | Comp with 2K IOPS |
-| ------ | ------- | ---------------- | ----- | ---------- | ----------------- |
-| 2      | 278.40  | 10.27            | 9.50% | 0.2927414  | \-10.2%           |
-| 4      | 501.73  | 11.65            | 18%   | 0.52757595 | \-11.0%           |
-| 8      | 851.54  | 14.21            | 35%   | 0.89540594 | \-9.1%            |
-| 16     | 1367.1  | 18.61            | 65%   | 1.43752432 | 63.2%             |
-| 32     | 1601.85 | 39.65            | 81%   | 1.68436715 | 53.3%             |
-| 64     | 1720.93 | 61.08            | 85%   | 1.80958139 | 41.7%             |
-| 128    | 1885.83 | 106.75           | 97%   | 1.98297599 | 6.7%              |
-| 256    | 1906.75 | 223.34           | 94%   | 2.00497366 | \-2.4%            |
-| 512    | 1467    | 601.29           | 89%   | 1.54257053 | \-12.6%           |
+	| ------ | ------- | ---------------- | ----- | ---------- | ----------------- |
+	| 2      | 278.40  | 10.27            | 9.50% | 0.2927414  | \-10.2%           |
+	| 4      | 501.73  | 11.65            | 18%   | 0.52757595 | \-11.0%           |
+	| 8      | 851.54  | 14.21            | 35%   | 0.89540594 | \-9.1%            |
+	| 16     | 1367.1  | 18.61            | 65%   | 1.43752432 | 63.2%             |
+	| 32     | 1601.85 | 39.65            | 81%   | 1.68436715 | 53.3%             |
+	| 64     | 1720.93 | 61.08            | 85%   | 1.80958139 | 41.7%             |
+	| 128    | 1885.83 | 106.75           | 97%   | 1.98297599 | 6.7%              	|
+	| 256    | 1906.75 | 223.34           | 94%   | 2.00497366 | \-2.4%            |
+	| 512    | 1467    | 601.29           | 89%   | 1.54257053 | \-12.6%           |
 
 3. Conclusion from follow up study
 
-With more IP, the TPS/throughput indeed increased.  At full full throttle(i.e. sweat spot) of 16/32/64 thds, the correspondent TPS/m$ raise 40~60%.  
+	With more IP, the TPS/throughput indeed increased.  At full full throttle(i.e. sweat spot) of 16/32/64 thds, the correspondent TPS/m$ raise 40~60%.  
 
-Please ref the [raw result](./sysBench_result_AWS8C32GB4000iops) and [CPU utility](.AWS_PG15_8C32GB4000ipos_CPU.jpg) for detail
+Please ref the [raw result](./sysBench_result_AWS8C32GB4000iops) and [CPU utility](./AWS_PG15_8C32GB4000ipos_CPU.jpg) for detail
